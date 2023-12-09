@@ -3,17 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="./scripts/index.js" defer></script>
+    <title>Produtos da API</title>
 </head>
 <body>
     
+    <h2>Listagem de Produtos</h2>
 
-    <script>
-        fetch('http://localhost:8080/api/products').then(response =>{
-            response.json().then(data => {
-                console.log(data)
-            })
-        })
-    </script>
+    <ul id="products-list"></ul>
+
+    <hr>
+
+    <h2>Cadastro Produtos</h2>
+     <form id="product-form">
+        <div>
+            <label>Produto</label>
+            <input type="text" name="product">
+        </div>
+        <div>
+            <label>Marca</label>
+            <input type="text" name="brand">
+        </div>
+        <div>
+            <label>Preço</label>
+            <input type="text" name="price">
+        </div>
+        <div>
+            <button type="submit">Cadastrar</button>
+        </div>
+     </form>
 </body>
 </html>
