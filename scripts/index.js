@@ -9,13 +9,36 @@ function obterLista () {
         response.json().then(data => {
             const productsHtml = data.map(products =>`
                 <li>
-                    ${products.name} - ${products.brand} - ${products.price}
+                    ${products.name} - ${products.brand} - ${products.price} - 
+                    <a href="#" class="delete-button" data-id="${products._id}"> [Excluir] </a>
                 </li>
             `).join('')
             productsList.innerHTML = productsHtml
+
+            const deleteButtons = document.querySelectorAll('.delete-button')
+            deleteButtons.forEach(button => {
+                button.onclick = function(e) {
+                    e.preventDefault()
+
+                    const id = this.dataset.id
+                    fetch(`${API_URL}/${id}`,{
+                        method: 'DELETE'
+                    }).then(response => {
+                        response.json().then(data => {
+                            if(data.message === 'success'){
+                                obterLista()
+                                alert('Produto excluido com sucesso')
+                            }else{
+                                alert('Erro ao excluir o produto')
+                            }
+                        })
+                    })
+                }
+            })
         })
     })
 }
+
 obterLista()
 
 // Cadastrar produtos
