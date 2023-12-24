@@ -4,21 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./scripts/index.js" defer></script>
+    <link rel="stylesheet" href="style.css">
     <title>Produtos da API</title>
 </head>
 <body>
     
     <h2>Listagem de Produtos</h2>
-
     <ul id="products-list"></ul>
-
     <hr>
-
-    <h2>Cadastro Produtos</h2>
-     <form id="product-form">
+    <form id="productForm">
+        <h2>Cadastro Produtos</h2>
         <div>
             <label>Produto</label>
-            <input type="text" name="product">
+            <input type="text" name="name">
         </div>
         <div>
             <label>Marca</label>
@@ -32,5 +30,27 @@
             <button type="submit">Cadastrar</button>
         </div>
      </form>
+
+     <div id="edit" class="hidden">
+         <form id="productFormEdit">
+            <h2>Alterar Produtos</h2>
+            <input type="hidden" name="id">
+            <div>
+                <label>Produto</label>
+                <input type="text" name="name">
+            </div>
+            <div>
+                <label>Marca</label>
+                <input type="text" name="brand">
+            </div>
+            <div>
+                <label>Preço</label>
+                <input type="text" name="price">
+            </div>
+            <div>
+                <button type="submit">Alterar</button>
+            </div>
+         </form>
+     </div>
 </body>
 </html>
